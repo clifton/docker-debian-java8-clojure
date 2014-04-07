@@ -14,13 +14,9 @@ RUN apt-get -y upgrade
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | \
   /usr/bin/debconf-set-selections
 RUN apt-get -y install oracle-java8-installer
-RUN apt-get clean
 RUN update-alternatives --display java 
+RUN apt-get clean
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-ENV LEIN_ROOT true
-
-RUN curl https://raw.github.com/technomancy/leiningen/stable/bin/lein \
-  > /usr/local/bin/lein && chmod 755 /usr/local/bin/lein && lein version
 
 CMD ["lein", "repl"]
