@@ -1,6 +1,3 @@
-docker-debian-java8
-===========================
-
 Docker container with debian and oracle java 8
 
 ```
